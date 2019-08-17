@@ -1,4 +1,0 @@
-/Users/aminadzh/Tasks/libft/builds/CMakeFiles/rebuild_cache.dir
-/Users/aminadzh/Tasks/libft/builds/CMakeFiles/edit_cache.dir
-/Users/aminadzh/Tasks/libft/builds/CMakeFiles/libft_test.dir
-/Users/aminadzh/Tasks/libft/builds/CMakeFiles/libft.dir
