@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aminadzh <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/17 17:35:08 by aminadzh          #+#    #+#             */
-/*   Updated: 2019/08/17 17:35:09 by aminadzh         ###   ########.fr       */
+/*   Created: 2019/08/17 16:49:25 by aminadzh          #+#    #+#             */
+/*   Updated: 2019/08/17 16:49:27 by aminadzh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "ft_string.h"
-#include "test.h"
+#ifndef TEST_H
+# define TEST_H
 
-int	main(void)
-{
-	test_string();
-}
+int		test_string();
+
+#endif
