@@ -21,7 +21,7 @@ int			test_string_append(t_string cont1, const char *s1)
 
 	cont2 = ft_string(" other");
 	compare = ft_strjoin(cont1.data, cont2.data);
-	ft_append_str(&cont1, &cont2);
+	ft_append_str(&cont1, cont2.data);
 	if (ft_strcmp(cont1.data, compare) != 0)
 	{
 		ft_putendl(cont1.data);
@@ -42,7 +42,7 @@ int			test_string_append2(void)
 	s1 = ft_string("New");
 	s2 = ft_string(" joined string");
 	compare = ft_strjoin(s1.data, s2.data);
-	ft_append_str(&s1, &s2);
+	ft_append_str(&s1, s2.data);
 	if (ft_strcmp(s1.data, compare) != 0)
 	{
 		ft_putendl(s1.data);
@@ -63,14 +63,14 @@ int			test_empty1(void)
 	s1 = ft_string(NULL);
 	s2 = ft_string("KEK");
 	s3 = ft_string(NULL);
-	ft_append_str(&s1, &s2);
+	ft_append_str(&s1, s2.data);
 	if (ft_strcmp(s1.data, s2.data) != 0)
 	{
 		ft_putendl(s1.data);
 		ft_putendl("Empty string concat failed");
 		return (-1);
 	}
-	ft_append_str(&s2, &s3);
+	ft_append_str(&s2, s3.data);
 	if (ft_strcmp(s1.data, s2.data) != 0)
 	{
 		ft_putendl(s2.data);

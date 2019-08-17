@@ -23,6 +23,7 @@ typedef struct	s_string
 }				t_string;
 
 t_string		ft_string(const char *str);
-void			ft_append_str(t_string *s1, const t_string *s2);
+void			ft_append_str(t_string *s1, const char *s2);
+void			ft_destroy_string(t_string *str);
 
 #endif

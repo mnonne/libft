@@ -28,20 +28,35 @@ t_string	ft_string(const char *str)
 	return (result);
 }
 
-void		ft_append_str(t_string *s1, const t_string *s2)
+void		ft_append_str(t_string *s1, const char *s2)
 {
 	char	*buf;
+	size_t	s_len;
 
-	if (s1->capacity > s1->len + s2->len)
-		ft_memcpy(&s1->data[s1->len], s2->data, s2->len);
+	s_len = 0;
+	if (s2 != NULL)
+		s_len = ft_strlen(s2);
+	if (s1->capacity > s1->len + s_len)
+	{
+		ft_memcpy(&s1->data[s1->len], s2, s_len);
+		s1->len += s_len;
+	}
 	else
 	{
-		buf = (char*)ft_memalloc((s1->len + s2->len) * 2 * sizeof(char));
+		buf = (char*)ft_memalloc((s1->len + s_len) * 2 * sizeof(char));
 		ft_memmove(buf, s1->data, s1->len);
-		ft_memmove(&buf[s1->len], s2->data, s2->len);
+		ft_memmove(&buf[s1->len], s2, s_len);
 		free(s1->data);
 		s1->data = buf;
-		s1->len += s2->len;
+		s1->len += s_len;
 		s1->capacity = s1->len * 2;
 	}
+}
+
+void		ft_destroy_string(t_string *str)
+{
+	if (str->capacity > 0)
+		free(str->data);
+	str->capacity = 0;
+	str->len = 0;
 }
