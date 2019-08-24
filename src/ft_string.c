@@ -28,7 +28,7 @@ t_string	ft_string(const char *str)
 	return (result);
 }
 
-void		ft_append_str(t_string *s1, const char *s2)
+void		ft_string_append(t_string *s1, const char *s2)
 {
 	char	*buf;
 	size_t	s_len;
@@ -53,10 +53,22 @@ void		ft_append_str(t_string *s1, const char *s2)
 	}
 }
 
-void		ft_destroy_string(t_string *str)
+void		ft_string_destroy(t_string *str)
 {
 	if (str->capacity > 0)
 		free(str->data);
 	str->capacity = 0;
 	str->len = 0;
+}
+
+size_t		ft_string_find(t_string *str, const char *find, size_t pos)
+{
+	char	*found;
+
+	if (pos >= str->len)
+		return (STR_NPOS);
+	found = ft_strstr(str->data + pos, find);
+	if (!found)
+		return (STR_NPOS);
+	return (found - str->data);
 }

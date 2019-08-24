@@ -21,7 +21,7 @@ int			test_string_append(t_string cont1, const char *s1)
 
 	cont2 = ft_string(" other");
 	compare = ft_strjoin(cont1.data, cont2.data);
-	ft_append_str(&cont1, cont2.data);
+	ft_string_append(&cont1, cont2.data);
 	if (ft_strcmp(cont1.data, compare) != 0)
 	{
 		ft_putendl(cont1.data);
@@ -42,7 +42,7 @@ int			test_string_append2(void)
 	s1 = ft_string("New");
 	s2 = ft_string(" joined string");
 	compare = ft_strjoin(s1.data, s2.data);
-	ft_append_str(&s1, s2.data);
+	ft_string_append(&s1, s2.data);
 	if (ft_strcmp(s1.data, compare) != 0)
 	{
 		ft_putendl(s1.data);
@@ -63,18 +63,39 @@ int			test_empty1(void)
 	s1 = ft_string(NULL);
 	s2 = ft_string("KEK");
 	s3 = ft_string(NULL);
-	ft_append_str(&s1, s2.data);
+	ft_string_append(&s1, s2.data);
 	if (ft_strcmp(s1.data, s2.data) != 0)
 	{
 		ft_putendl(s1.data);
 		ft_putendl("Empty string concat failed");
 		return (-1);
 	}
-	ft_append_str(&s2, s3.data);
+	ft_string_append(&s2, s3.data);
 	if (ft_strcmp(s1.data, s2.data) != 0)
 	{
 		ft_putendl(s2.data);
 		ft_putendl("Empty string concat failed");
+		return (-1);
+	}
+	return (0);
+}
+
+int			test_find(void)
+{
+	t_string	str;
+	size_t		pos;
+
+	str = ft_string("Needle in a haystack");
+	pos = ft_string_find(&str, "haystack", 0);
+	if (pos != 12)
+	{
+		ft_putendl("Find failed");
+		return (-1);
+	}
+	pos = ft_string_find(&str, "haystack", 33);
+	if (pos != STR_NPOS)
+	{
+		ft_putendl("Find failed");
 		return (-1);
 	}
 	return (0);
@@ -95,6 +116,8 @@ int			test_string(void)
 	if (test_string_append2() < 0)
 		return (-1);
 	if (test_empty1() < 0)
+		return (-1);
+	if (test_find() < 0)
 		return (-1);
 	return (0);
 }

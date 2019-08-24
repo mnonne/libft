@@ -14,6 +14,9 @@
 # define FT_STRING_H
 
 # include <stdlib.h>
+# include <stdint.h>
+
+# define STR_NPOS SIZE_MAX
 
 typedef struct	s_string
 {
@@ -23,7 +26,8 @@ typedef struct	s_string
 }				t_string;
 
 t_string		ft_string(const char *str);
-void			ft_append_str(t_string *s1, const char *s2);
-void			ft_destroy_string(t_string *str);
+void			ft_string_append(t_string *s1, const char *s2);
+void			ft_string_destroy(t_string *str);
+size_t			ft_string_find(t_string *str, const char *find, size_t pos);
 
 #endif
