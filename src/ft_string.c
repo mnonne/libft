@@ -72,3 +72,33 @@ size_t		ft_string_find(t_string *str, const char *find, size_t pos)
 		return (STR_NPOS);
 	return (found - str->data);
 }
+
+void		ft_string_replace(t_string *str, size_t pos, size_t len,
+		const char *src)
+{
+	char	*buffer;
+	size_t	src_len;
+
+	if (pos > str->len + 1)
+		return ;
+	src_len = ft_strlen(src);
+	len = (len <= src_len) ? len : src_len;
+	if (pos - 1 + len > str->capacity)
+	{
+		buffer = (char*)ft_memalloc(((pos - 1 + len > str->len + len) ?
+				pos - 1 + len : str->len + len) * 2 * sizeof(char));
+		ft_memcpy(buffer, str->data, pos - 1);
+	}
+	else
+		buffer = str->data;
+	ft_memmove(buffer + pos - 1, src, len);
+	if (pos - 1 + len > str->capacity)
+	{
+		free(str->data);
+		str->data = buffer;
+		str->capacity = ((pos - 1 + len > str->len + len) ?
+				pos - 1 + len : str->len + len) * 2;
+	}
+	if (str->len < pos - 1 + len)
+		str->len = pos - 1 + len;
+}

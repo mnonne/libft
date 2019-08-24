@@ -119,5 +119,7 @@ int			test_string(void)
 		return (-1);
 	if (test_find() < 0)
 		return (-1);
+	if (test_string_replace() < 0)
+		return (-1);
 	return (0);
 }

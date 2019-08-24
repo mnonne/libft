@@ -22,6 +22,7 @@ add_library(libft STATIC ${LIBFT_SRC})
 target_include_directories(libft PUBLIC ${PROJECT_SOURCE_DIR}/includes)
 
 add_executable(libft_test
-	test/main.c
-	test/test_string.c)
+		test/main.c
+		test/test_string.c
+		test/test_string2.c)
 target_link_libraries(libft_test PRIVATE libft)

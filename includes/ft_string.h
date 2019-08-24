@@ -29,5 +29,7 @@ t_string		ft_string(const char *str);
 void			ft_string_append(t_string *s1, const char *s2);
 void			ft_string_destroy(t_string *str);
 size_t			ft_string_find(t_string *str, const char *find, size_t pos);
+void			ft_string_replace(t_string *str, size_t pos, size_t len,
+		const char *src);
 
 #endif

@@ -14,5 +14,6 @@
 # define TEST_H
 
 int		test_string();
+int		test_string_replace();
 
 #endif
